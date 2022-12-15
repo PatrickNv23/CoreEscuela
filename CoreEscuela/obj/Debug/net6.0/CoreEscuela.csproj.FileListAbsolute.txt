@@ -1,0 +1,15 @@
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\bin\Debug\net6.0\CoreEscuela.exe
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\bin\Debug\net6.0\CoreEscuela.deps.json
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\bin\Debug\net6.0\CoreEscuela.runtimeconfig.json
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\bin\Debug\net6.0\CoreEscuela.dll
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\bin\Debug\net6.0\CoreEscuela.pdb
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.csproj.AssemblyReference.cache
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.GeneratedMSBuildEditorConfig.editorconfig
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.AssemblyInfoInputs.cache
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.AssemblyInfo.cs
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.csproj.CoreCompileInputs.cache
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.dll
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\refint\CoreEscuela.dll
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.pdb
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\CoreEscuela.genruntimeconfig.cache
+E:\Dasser\Aprendizaje .NET 6\CoreEscuela\CoreEscuela\obj\Debug\net6.0\ref\CoreEscuela.dll
