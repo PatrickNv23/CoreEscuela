@@ -28,6 +28,8 @@ namespace CoreEscuela.Entidades
 
         public TipoEscuela TipoEscuela { get; set; }
 
+        public Curso[] Cursos { get; set; }
+
 
         public Escuela(String nombre, int año, String pais)
         {
