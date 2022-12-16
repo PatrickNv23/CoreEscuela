@@ -10,26 +10,29 @@ namespace CoreEscuela{
     {
         static void Main(String[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+            AppDomain.CurrentDomain.ProcessExit += (sender, e) => Printer.pitar(2000, 1000, 1);
+
             var EscuelaEngine = new EscuelaEngine();
             EscuelaEngine.Inicializar();
             Printer.DibujarLinea();
             Printer.DibujarLinea(20);
-            //Printer.pitar(cantidad: 10);
             imprimirCursosEscuela(EscuelaEngine.Escuela);
-            var listaObjetos = EscuelaEngine.obtenerObjetosEscuelaBase();
 
-            //Obtener solo los objetos que implementaron ILugar
-            var listaILugar = from obj in listaObjetos
-                              where obj is ILugar
-                              select (ILugar) obj;
-
-            foreach (var objetoILugar in listaILugar)
-            {
-                WriteLine(objetoILugar);
-            }
+            Printer.DibujarLinea();
+            var diccionarioTotal = EscuelaEngine.obtenerDiccionarObjetosEscuela();
+            EscuelaEngine.imprimirDiccionario(diccionarioTotal);
         }
 
-            private static void imprimirCursosEscuela(Escuela escuela)
+
+        private static void AccionDelEvento(object? sender, EventArgs e)
+        {
+            Printer.DibujarTitulo("SALIENDO");
+            Printer.pitar(3000, 1000, 3);
+            Printer.DibujarTitulo("SALIÓ!!!");
+        }
+
+        private static void imprimirCursosEscuela(Escuela escuela)
         {
             WriteLine(escuela);
             Printer.DibujarTitulo($"Curso de Escuela {escuela.Nombre}");
