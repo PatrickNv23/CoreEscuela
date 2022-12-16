@@ -12,6 +12,10 @@ namespace CoreEscuela.Entidades
         public String Nombre { get; set; }
         public TiposJornada Jornada { get; set;}
 
+        public List<Asignatura> Asignaturas { get; set; }
+
+        public List<Alumno> Alumnos { get; set; }
+
         public Curso()
         {
             Id = Guid.NewGuid().ToString();

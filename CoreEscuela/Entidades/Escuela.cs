@@ -8,6 +8,7 @@ namespace CoreEscuela.Entidades
 {
     internal class Escuela
     {
+        private string Id { get; set; } = Guid.NewGuid().ToString();    
         private string nombre;
         public string Nombre
         {
@@ -51,7 +52,7 @@ namespace CoreEscuela.Entidades
 
         public override string ToString()
         {
-            return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad: {Ciudad}";
+            return $"Id: {Id} Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad: {Ciudad}";
         }
 
     }
