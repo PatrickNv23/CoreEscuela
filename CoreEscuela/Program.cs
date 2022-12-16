@@ -10,16 +10,43 @@ namespace CoreEscuela{
             var escuela = new Escuela("Platzi Academy", 2012, TipoEscuela.Secundaria, pais:"Colombia", ciudad: "Bogotá");
 
             // -------------------------------
-
-            Curso[] arregloCursos =
-            {
-                new Curso() { Nombre = "Curso 1"},
-                new Curso(){Nombre = "Curso 2"},
-                new Curso(){Nombre = "Curso 3"}
+            escuela.Cursos = new List<Curso>(){
+                new Curso() { Nombre = "Curso 1", Jornada = TiposJornada.Mañana},
+                new Curso(){Nombre = "Curso 2", Jornada = TiposJornada.Tarde},
+                new Curso(){Nombre = "Curso 3", Jornada = TiposJornada.Noche}
             };
-            escuela.Cursos = arregloCursos;
 
+            escuela.Cursos.Add(new Curso() { Nombre = "Curso 4", Jornada = TiposJornada.Noche });
+            escuela.Cursos.Add(new Curso() { Nombre = "Curso 5", Jornada = TiposJornada.Tarde });
+
+            var otraColeccion = new List<Curso>()
+            {
+                new Curso(){ Nombre = "Curso 1 lista 2" , Jornada = TiposJornada.Noche},
+                new Curso() { Nombre = "Curso 2 lista 2", Jornada = TiposJornada.Tarde },
+                new Curso() { Nombre = "Curso 3 lista 2", Jornada = TiposJornada.Mañana }
+            };
+
+            Curso cursoVacacional = new Curso() { Nombre = "Curso vacacional", Jornada = TiposJornada.Noche };
+            escuela.Cursos.AddRange(otraColeccion);
+            escuela.Cursos.Add(cursoVacacional);
             imprimirCursosEscuela(escuela);
+
+            escuela.Cursos.Remove(cursoVacacional);
+            escuela.Cursos.RemoveAll(Curso => Curso.Nombre == "Curso 3 lista 2");
+
+            Predicate<Curso> predicado = Predicado;
+            escuela.Cursos.RemoveAll(predicado);
+
+            escuela.Cursos.RemoveAll(delegate (Curso curso)
+            {
+                return curso.Nombre == "Curso 1 lista 2";
+            });
+            imprimirCursosEscuela(escuela);
+        }
+
+        private static Boolean Predicado(Curso curso)
+        {
+            return curso.Nombre == "Curso 2 lista 2";
         }
 
         private static void imprimirCursosEscuela(Escuela escuela)
