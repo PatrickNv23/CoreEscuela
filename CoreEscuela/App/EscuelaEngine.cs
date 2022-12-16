@@ -26,31 +26,7 @@ namespace CoreEscuela.App
 
         }
 
-        public void CargarEvaluaciones()
-        {
-            foreach (var curso in Escuela.Cursos)
-            {
-                foreach(var asignatura in curso.Asignaturas)
-                {
-                    foreach(var alumno in curso.Alumnos)
-                    {
-                        var random = new Random(System.Environment.TickCount);
 
-                        for(int i = 0; i<5; i++)
-                        {
-                            var evaluacion = new Evaluacion()
-                            {
-                                Asignatura = asignatura,
-                                Nombre = $"{asignatura.Nombre} Evaluación#{i + 1}",
-                                Nota = (float)(5 * random.NextDouble()),
-                                Alumno = alumno
-                            };
-                            alumno.Evaluaciones.Add(evaluacion);
-                        }
-                    }
-                }
-            }
-        }
 
         public List<ObjetoEscuelaBase> obtenerObjetosEscuelaBase()
         {
@@ -71,6 +47,34 @@ namespace CoreEscuela.App
             }
 
             return listaObjetosEscuelaBase;
+        }
+
+
+        #region Métodos de carga
+        public void CargarEvaluaciones()
+        {
+            foreach (var curso in Escuela.Cursos)
+            {
+                foreach (var asignatura in curso.Asignaturas)
+                {
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        var random = new Random(System.Environment.TickCount);
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var evaluacion = new Evaluacion()
+                            {
+                                Asignatura = asignatura,
+                                Nombre = $"{asignatura.Nombre} Evaluación#{i + 1}",
+                                Nota = (float)(5 * random.NextDouble()),
+                                Alumno = alumno
+                            };
+                            alumno.Evaluaciones.Add(evaluacion);
+                        }
+                    }
+                }
+            }
         }
 
         public void CargarAsignaturas()
@@ -121,6 +125,7 @@ namespace CoreEscuela.App
                 curso.Alumnos = GenerarAlumnosAlAzar(cantidadRandom);
             }
         }
+        #endregion
 
 
     }

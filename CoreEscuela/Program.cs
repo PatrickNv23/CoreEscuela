@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CoreEscuela.App;
 using CoreEscuela.Entidades;
+using CoreEscuela.Interfaces;
 using CoreEscuela.Util;
 using static System.Console;
 
@@ -17,11 +18,15 @@ namespace CoreEscuela{
             imprimirCursosEscuela(EscuelaEngine.Escuela);
             var listaObjetos = EscuelaEngine.obtenerObjetosEscuelaBase();
 
-            foreach (var objeto in listaObjetos)
-            {
-                WriteLine(objeto);
-            }
+            //Obtener solo los objetos que implementaron ILugar
+            var listaILugar = from obj in listaObjetos
+                              where obj is ILugar
+                              select (ILugar) obj;
 
+            foreach (var objetoILugar in listaILugar)
+            {
+                WriteLine(objetoILugar);
+            }
         }
 
             private static void imprimirCursosEscuela(Escuela escuela)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoreEscuela.Interfaces;
+using CoreEscuela.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal class Escuela : ObjetoEscuelaBase
+    internal class Escuela : ObjetoEscuelaBase, ILugar
     {
         public int AñoDeCreación { get; set; }
         public String Pais { get; set; }
@@ -16,7 +18,7 @@ namespace CoreEscuela.Entidades
         public TipoEscuela TipoEscuela { get; set; }
 
         public List<Curso> Cursos { get; set; }
-
+        public string Direccion { get ; set; }
 
         public Escuela(String nombre, int año, String pais)
         {
@@ -41,5 +43,15 @@ namespace CoreEscuela.Entidades
             return $"Id: {Id} Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad: {Ciudad}";
         }
 
+        public void limpiarLugar()
+        {
+            Printer.DibujarLinea();
+            Console.WriteLine("Limpiando Escuela..");
+            foreach (var curso in Cursos)
+            {
+                curso.limpiarLugar();
+            }
+            Console.WriteLine($"Escuela {Nombre} limpia");
+        }
     }
 }
