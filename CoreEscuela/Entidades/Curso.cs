@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal class Curso
+    internal class Curso : ObjetoEscuelaBase
     {
-        public String Id { get; private set; }
-        public String Nombre { get; set; }
-        public TiposJornada Jornada { get; set;}
+        public TipoJornada Jornada { get; set;}
 
         public List<Asignatura> Asignaturas { get; set; }
 
         public List<Alumno> Alumnos { get; set; }
 
-        public Curso()
-        {
-            Id = Guid.NewGuid().ToString();
-        }
     }
 }

@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal class Alumno
+    internal class Alumno : ObjetoEscuelaBase
     {
-        public String Id { get; set; }
-        public String Nombre { get; set;}
-
-        public List<Evaluaciones> Evaluaciones { get; set; }
-        
-        public Alumno()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
+        public List<Evaluacion> Evaluaciones { get; set; } = new List<Evaluacion>();
+       
     }
 
 }

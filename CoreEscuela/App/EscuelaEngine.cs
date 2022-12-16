@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.App
 {
-    internal class EscuelaEngine
+    internal sealed class EscuelaEngine
     {
         public Escuela Escuela { get; set; }
 
@@ -38,18 +38,39 @@ namespace CoreEscuela.App
 
                         for(int i = 0; i<5; i++)
                         {
-                            var evaluacion = new Evaluaciones()
+                            var evaluacion = new Evaluacion()
                             {
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Evaluación#{i + 1}",
                                 Nota = (float)(5 * random.NextDouble()),
                                 Alumno = alumno
                             };
-                            alumno.Evaluaciones?.Add(evaluacion);
+                            alumno.Evaluaciones.Add(evaluacion);
                         }
                     }
                 }
             }
+        }
+
+        public List<ObjetoEscuelaBase> obtenerObjetosEscuelaBase()
+        {
+            var listaObjetosEscuelaBase = new List<ObjetoEscuelaBase>
+            {
+                Escuela
+            };
+            listaObjetosEscuelaBase.AddRange(Escuela.Cursos);
+            foreach (var Curso in Escuela.Cursos)
+            {
+                listaObjetosEscuelaBase.AddRange(Curso.Alumnos);
+                listaObjetosEscuelaBase.AddRange(Curso.Asignaturas);
+
+                foreach (var Alumno in Curso.Alumnos)
+                {
+                    listaObjetosEscuelaBase.AddRange(Alumno.Evaluaciones);
+                }
+            }
+
+            return listaObjetosEscuelaBase;
         }
 
         public void CargarAsignaturas()
@@ -86,11 +107,11 @@ namespace CoreEscuela.App
         {
             this.Escuela.Cursos = new List<Curso>()
             {
-                new Curso() { Nombre = "Curso 1", Jornada = TiposJornada.Mañana},
-                new Curso(){Nombre = "Curso 2", Jornada = TiposJornada.Tarde},
-                new Curso(){Nombre = "Curso 3", Jornada = TiposJornada.Noche},
-                new Curso(){ Nombre = "Curso 4" , Jornada = TiposJornada.Noche},
-                new Curso() { Nombre = "Curso 5", Jornada = TiposJornada.Tarde },
+                new Curso() { Nombre = "Curso 1", Jornada = TipoJornada.Mañana},
+                new Curso(){Nombre = "Curso 2", Jornada = TipoJornada.Tarde},
+                new Curso(){Nombre = "Curso 3", Jornada = TipoJornada.Noche},
+                new Curso(){ Nombre = "Curso 4" , Jornada = TipoJornada.Noche},
+                new Curso() { Nombre = "Curso 5", Jornada = TipoJornada.Tarde },
             };
             Random random = new Random();
             

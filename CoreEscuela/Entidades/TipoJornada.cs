@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal enum TiposJornada
+    internal enum TipoJornada
     {
         Mañana, Tarde, Noche
     }

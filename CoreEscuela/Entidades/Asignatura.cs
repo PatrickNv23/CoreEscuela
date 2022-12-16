@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal class Asignatura
+    internal class Asignatura : ObjetoEscuelaBase
     {
-        private String Id { get; set; }
-        public String Nombre { get; set; }
 
-        public Asignatura()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
     }
 }

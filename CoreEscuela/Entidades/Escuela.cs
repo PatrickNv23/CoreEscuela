@@ -6,22 +6,8 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal class Escuela
+    internal class Escuela : ObjetoEscuelaBase
     {
-        private string Id { get; set; } = Guid.NewGuid().ToString();    
-        private string nombre;
-        public string Nombre
-        {
-            get
-            {
-                return nombre;
-            }
-            set
-            {
-                nombre = value;
-            }
-        }
-
         public int AñoDeCreación { get; set; }
         public String Pais { get; set; }
 
@@ -34,7 +20,7 @@ namespace CoreEscuela.Entidades
 
         public Escuela(String nombre, int año, String pais)
         {
-            this.nombre = nombre;
+            this.Nombre = nombre;
             this.AñoDeCreación = año;
             this.Pais = pais;
         }

@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    internal class Evaluaciones
+    internal class Evaluacion : ObjetoEscuelaBase
     {
-        public String Id { get; set; }
-        public String Nombre { get; set; }
-
         public Alumno Alumno { get; set; }
         public Asignatura Asignatura { get; set; }
 
         public float Nota { get; set; }
-        public Evaluaciones()
+
+        public override string ToString()
         {
-            this.Id = Guid.NewGuid().ToString();
+            return $"{Nota} - {Alumno.Nombre} - {Asignatura.Nombre}";
         }
     }
 }
